@@ -1,0 +1,13 @@
+== SOAP mit Spring-WS
+
+.Links
+* Tutorial: https://spring.io/guides/gs/producing-web-service
+* Projekt: https://spring.io/projects/spring-ws#overview
+
+=== Running
+
+.Server starten
+    mvn spring-boot:run
+
+.Testen
+    curl --header "content-type: text/xml" -d @request.xml http://localhost:8080/ws
