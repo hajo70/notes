@@ -4,14 +4,12 @@ import com.example.countries.wsdl.GetCountryRequest;
 import com.example.countries.wsdl.GetCountryResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
-import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
+import org.springframework.ws.soap.server.endpoint.annotation.SoapAction;
 
 @Endpoint
 public class CountryEndpoint {
-    private static final String NAMESPACE_URI = "http://spring.io/guides/gs-producing-web-service";
-
     private final CountryRepository countryRepository;
 
     @Autowired
@@ -19,7 +17,7 @@ public class CountryEndpoint {
         this.countryRepository = countryRepository;
     }
 
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getCountryRequest")
+    @SoapAction("http://spring.io/guides/gs-producing-web-service/GetCountryRequest")
     @ResponsePayload
     public GetCountryResponse getCountry(@RequestPayload GetCountryRequest request) {
         GetCountryResponse response = new GetCountryResponse();
