@@ -1,0 +1,34 @@
+== Docker Networking
+
+=== Grundlagen
+
+Jeder Docker-Container hat eine virtuelle Ethernet-Karte und ist mit einer Bridge (NAT) verbunden.
+
+
+=== Dockerfile
+
+.Dockerfile
+----
+include::Dockerfile[]
+----
+
+    docker build -t local/ubuntu-net .
+
+=== Session
+
+    docker run -it --rm --name ubu1 local/ubuntu-net /bin/bash
+    docker run -it --rm --name ubu2 --link ubu1 local/ubuntu-net /bin/bash
+    ping ubu1
+
+=== Debugging Container
+
+-> https://stackoverflow.com/questions/24319662/from-inside-of-a-docker-container-how-do-i-connect-to-the-localhost-of-the-mach
+
+.Host
+    ip addr show docker0
+
+.Container
+    ip addr show eth0
+    route
+
+
