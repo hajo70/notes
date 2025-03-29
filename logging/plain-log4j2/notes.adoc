@@ -1,0 +1,5 @@
+== Links
+
+* https://logging.apache.org/log4j/2.3.x/runtime-dependencies.html[Log4j2 Modules]
+* https://logging.apache.org/log4j/2.3.x/manual/webapp.html[Log4j2 in Web Applications]
+* https://logging.apache.org/log4j/2.3.x/manual/configuration.html[Log4j2 Configuration]
